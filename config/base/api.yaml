@@ -1,0 +1,14 @@
+api:
+  gameApi: https://epic7.gg.onstove.com/
+  staticApi: https://static.smilegatemegaport.com/
+header:
+  accept: application/json, text/plain, */*
+  accept-language: zh-CN,zh;q=0.9
+  content-type: application/x-www-form-urlencoded
+  sec-ch-ua: Google Chrome;v=119, Chromium;v=119, Not?A_Brand;v=24
+  sec-ch-ua-mobile: ?0
+  sec-ch-ua-platform: Windows
+  sec-fetch-dest: empty
+  sec-fetch-mode: cors
+  sec-fetch-site: same-origin
+  Referrer-Policy: strict-origin-when-cross-origin

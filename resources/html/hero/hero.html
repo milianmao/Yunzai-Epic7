@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ability and Equipment</title>
+
+
+
+</head>
+<body>
+<div id="res"></div>
+<div class="ability-container">
+  <h3>能力值</h3>
+  <p>等級60/覺醒第6階段/穿戴所有裝備時的資訊</p>
+  <ul class="ability-list">
+    <li>
+      <span class="skill-name">攻击力</span>
+      <div class="listbox">
+        <span>1200</span>
+        <div class="charts-hero-bar">
+            <div id="att-chart" style="padding: 0; margin: 0px; gap: 0px; width: 90px; height: 38px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></div>
+        </div>
+        <span>5200</span>
+      </div>
+    </li>
+
+    <li>
+      <span class="skill-name">防御力</span>
+      <div class="listbox">
+        <span>800</span>
+        <div class="charts-hero-bar">
+          <div id="def-chart" style="padding: 0; margin: 0px; gap: 0px; width: 90px; height: 38px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></div>
+        </div>
+        <span>2400</span>
+      </div>
+    </li>
+    <li>
+      <span class="skill-name">生命力</span>
+      <div class="listbox">
+        <span>9000</span>
+        <div class="charts-hero-bar">
+          <div id="hp-chart" style="padding: 0; margin: 0px; gap: 0px; width: 90px; height: 38px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></div>
+        </div>
+        <span>25000</span>
+      </div>
+    </li>
+    <li>
+      <span class="skill-name">速度</span>
+      <div class="listbox">
+        <span>110</span>
+        <div class="charts-hero-bar">
+          <div id="speed-chart" style="padding: 0; margin: 0px; gap: 0px; width: 90px; height: 38px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></div>
+        </div>
+        <span>270</span>
+      </div>
+    </li>
+
+    <li>
+      <span class="skill-name">暴击率</span>
+      <div class="listbox">
+        <span>15</span>
+        <div class="charts-hero-bar">
+          <div id="cri-chart" style="padding: 0; margin: 0px; gap: 0px; width: 90px; height: 38px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></div>
+        </div>
+        <span>100</span>
+      </div>
+    </li>
+
+    <li>
+      <span class="skill-name">暴击伤害</span>
+      <div class="listbox">
+        <span>150</span>
+        <div class="charts-hero-bar">
+          <div id="cri_dmg-chart" style="padding: 0; margin: 0px; gap: 0px; width: 90px; height: 38px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></div>
+        </div>
+        <span>350</span>
+      </div>
+    </li>
+
+    <li>
+      <span class="skill-name">效果命中</span>
+      <div class="listbox">
+        <span>0</span>
+        <div class="charts-hero-bar">
+          <div id="acc-chart" style="padding: 0; margin: 0px; gap: 0px; width: 90px; height: 38px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></div>
+        </div>
+        <span>180</span>
+      </div>
+    </li>
+
+    <li>
+      <span class="skill-name">效果抵抗</span>
+      <div class="listbox">
+        <span>0</span>
+        <div class="charts-hero-bar">
+          <div id="res-chart" style="padding: 0; margin: 0px; gap: 0px; width: 90px; height: 38px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></div>
+        </div>
+        <span>225</span>
+      </div>
+    </li>
+  </ul>
+</div>
+</body>
+<!-- 引入Echarts库 -->
+<script src="{{pluResPath}}html/hero/echarts.min.js"></script>
+<!--<script src="echarts.min.js"></script>-->
+<!-- 在这里通过JS代码使用Echarts生成图表 -->
+<script>
+  var res = document.getElementById('res')
+  // 生成攻击力图表
+  var attChart = echarts.init(document.querySelector('#att-chart'));
+  const attData = `{{@ attData}}`.split(',');
+  const attOption = getOption(attData)
+  attChart.setOption(attOption);
+
+  // document.addEventListener('DOMContentLoaded', function() {
+  //   // 创建新的 div 元素
+  //   var newDiv = document.createElement('div');
+  //   attOption.series[0].data = `{{@ attData}}`
+  //   // 设置新 div 的内容
+  //   newDiv.innerHTML = yData;
+  //
+  //   // 将新 div 添加到文档中
+  //   document.body.appendChild(newDiv);
+  // });
+
+
+  // 生成防御力图表
+  var defChart = echarts.init(document.querySelector('#def-chart'));
+  const defOption = getOption(`{{@ defData}}`.split(","));
+  defChart.setOption(defOption);
+
+  // 生成生命力图表
+  var hpChart = echarts.init(document.querySelector('#hp-chart'));
+  const hpOption = getOption(`{{@ maxHpData}}`.split(","));
+  hpChart.setOption(hpOption);
+
+  // 生成速度图表
+  var speedChart = echarts.init(document.querySelector('#speed-chart'));
+  const speedOption = getOption(`{{@ speedData}}`.split(","))
+  speedChart.setOption(speedOption);
+
+  // 生成暴击率图表
+  var hitChart = echarts.init(document.querySelector('#cri-chart'));
+  const hitOption =  getOption( `{{@ criData}}`.split(","));
+  hitChart.setOption(hitOption)
+
+  // 生成暴击伤害图表
+  var hitDmgChart = echarts.init(document.querySelector('#cri_dmg-chart'));
+  const hitDmgOption = getOption( `{{@ criDmgData}}`.split(","))
+  hitDmgChart.setOption(hitDmgOption);
+
+  // 生成效果命中图表
+  var accChart = echarts.init(document.querySelector('#acc-chart'));
+  const accOption = getOption(`{{@ accData}}`.split(","));
+  accChart.setOption(accOption);
+
+  // 生成效果抵抗图表
+  var resChart = echarts.init(document.querySelector('#res-chart'));
+  const resOption = getOption(`{{@ resData}}`.split(","));
+  resChart.setOption(resOption);
+
+  function getOption(data){
+    const yData = data;
+    return {
+      grid: {
+        left: 10,
+        right: 10,
+        top: 0,
+        bottom: 10,
+      },
+      xAxis: {
+        type: 'category',
+        data: ['+1', '+2', '+3', '+4', '+5', '+6', '+7', '+8', '+9', '+10'],
+        axisLine: {
+          show: !1
+        },
+        splitLine: {
+          show: !1
+        },
+        axisTick: {
+          show: !1
+        },
+        axisLabel: {
+          show: !1,
+          textStyle: {
+            color: '#333',
+            fontSize: 8,
+            fontWeight: '600',
+            padding: 0,
+            lineHeight: 6
+          },
+          interval: 0
+        }
+      },
+      yAxis: {
+        type: 'value',
+        max: 100,
+        axisLabel: {
+          show: !1,
+          formatter: '{value} %'
+        },
+        splitLine: {
+          show: !1
+        }
+      },
+      series: [
+        {
+          // data: [20,20,20,40,40,40,40,40,40,40],
+          data: yData,
+          type: 'bar',
+          itemStyle: {
+            color: function (e) {
+              return 0 === e.dataIndex || 1 === e.dataIndex
+                ? '#f4c3c3'
+                : 2 === e.dataIndex || 3 === e.dataIndex
+                  ? '#efa4a4'
+                  : 4 === e.dataIndex || 5 === e.dataIndex
+                    ? '#e98686'
+                    : '#e46868';
+            },
+            borderRadius: [1, 1, 1, 1]
+          },
+          animationDuration: 1200
+        }
+      ]
+    };
+  }
+</script>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 让 body 占据整个视口高度 */
+    margin: 0;
+  }
+  div{
+    display: block;
+  }
+  .ability-container {
+    width: 596px;
+    height: 270px;
+    border: 1px solid #e3e5e8;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .ability-container h3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 32px;
+    text-align: center;
+    margin: 0;
+    background-color: #f7f7f9;
+    color: #777;
+    font-weight: 600;
+    font-size: 14px;
+    border-bottom: 1px solid #e3e5e8;
+  }
+
+  .ability-container p{
+    padding: 18px 0 12px;
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+    margin: 0 0;
+  }
+
+  .ability-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+  }
+
+  span{
+    margin: 0;
+    padding: 0;
+    word-break: keep-all;
+  }
+  .ability-container ul{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-bottom: 5px;
+  }
+  .ability-container ul li {
+    width: 266px;
+    height: 46px;
+    display: inline-flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin: 0 15px;
+  }
+
+  .ability-container .ability-list li .skill-name{
+    position: relative;
+    font-size: 14px;
+    width: 120px;
+    font-weight: 600;
+    margin: 0 0;
+    list-style: none;
+  }
+  .ability-container .ability-list li .skill-name::before{
+    content: "";
+    display: inline-block;
+    width: 3px;
+    height: 3px;
+    background-color: #999;
+    vertical-align: middle;
+    margin-right: 5px;
+    border-radius: 100px;
+  }
+
+  .ability-container ul li  .listbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    margin-left: auto;
+  }
+
+  .ability-container ul li  .listbox span{
+    display: inline-block;
+    width: 36px;
+    font-size: 11px;
+    font-weight: 600
+  }
+
+  .ability-container ul li  .listbox span:first-child{
+    text-align: right;
+  }
+
+  .ability-container ul li  .listbox span:last-child{
+    text-align: left;
+  }
+
+  .ability-container ul li  .listbox .charts-hero-bar{
+    position: relative;
+    width: 90px;
+    height: 48px;
+  }
+
+</style>
+</html>

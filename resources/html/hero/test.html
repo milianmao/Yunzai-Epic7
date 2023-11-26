@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ability and Equipment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* 让 body 占据整个视口高度 */
+      margin: 0;
+    }
+    div{
+      display: block;
+    }
+    .ability-container {
+      width: 596px;
+      height: 270px;
+      border: 1px solid #e3e5e8;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .ability-container h3{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 32px;
+      text-align: center;
+      margin: 0;
+      background-color: #f7f7f9;
+      color: #777;
+      font-weight: 600;
+      font-size: 14px;
+      border-bottom: 1px solid #e3e5e8;
+    }
+
+    .ability-container p{
+      padding: 18px 0 12px;
+      text-align: center;
+      width: 100%;
+      font-size: 14px;
+      color: #333;
+      font-weight: 500;
+      margin: 0 0;
+    }
+
+    .ability-list {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      padding: 0;
+      margin: 0;
+    }
+
+    span{
+      margin: 0;
+      padding: 0;
+      word-break: keep-all;
+    }
+    .ability-container ul{
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      padding-bottom: 5px;
+    }
+    .ability-container ul li {
+      width: 266px;
+      height: 46px;
+      display: inline-flex;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      margin: 0 15px;
+    }
+
+    .ability-container .ability-list li .skill-name{
+      position: relative;
+      font-size: 14px;
+      width: 120px;
+      font-weight: 600;
+      margin: 0 0;
+      list-style: none;
+    }
+    .ability-container .ability-list li .skill-name::before{
+      content: "";
+      display: inline-block;
+      width: 3px;
+      height: 3px;
+      background-color: #999;
+      vertical-align: middle;
+      margin-right: 5px;
+      border-radius: 100px;
+    }
+
+    .ability-container ul li  .listbox{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 200px;
+      margin-left: auto;
+    }
+
+    .ability-container ul li  .listbox span{
+      display: inline-block;
+      width: 36px;
+      font-size: 11px;
+    }
+
+    .ability-container ul li  .listbox span:first-child{
+      text-align: right;
+    }
+
+    .ability-container ul li  .listbox span:last-child{
+      text-align: right;
+    }
+
+    .ability-container ul li  .listbox .charts-hero-bar{
+      position: relative;
+      width: 90px;
+      height: 48px;
+    }
+
+
+  </style>
+</head>
+<body>
+
+<div class="ability-container">
+  <h3>能力值</h3>
+  <p>等級60/覺醒第6階段/穿戴所有裝備時的資訊</p>
+  <ul class="ability-list">
+    <li>
+      <span class="skill-name">攻击力</span>
+      <div class="listbox">
+        <span>1200</span>
+        <div class="charts-hero-bar">
+          <div id="acc-chart" style="padding: 0px; margin: 0px; gap: 0px; width: 100%; height: 38px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></div>
+        </div>
+        <span>5200</span>
+      </div>
+    </li>
+    <li>
+      <span class="skill-name">防御力</span>
+      <div class="listbox">
+        <span>1200</span>
+        <div class="charts-hero-bar">图表</div>
+        <span>5200</span>
+      </div>
+    </li>
+    <li>
+      <span class="skill-name">攻击力</span>
+      <div class="listbox">
+        <span>1200</span>
+        <div class="charts-hero-bar">图表</div>
+        <span>5200</span>
+      </div>
+    </li>
+    <li>
+      <span class="skill-name">攻击力</span>
+      <div class="listbox">
+        <span>1200</span>
+        <div class="charts-hero-bar">图表</div>
+        <span>5200</span>
+      </div>
+    </li>
+
+    <li>
+      <span class="skill-name">攻击力</span>
+      <div class="listbox">
+        <span>1200</span>
+        <div class="charts-hero-bar">图表</div>
+        <span>5200</span>
+      </div>
+    </li>
+
+    <li>
+      <span class="skill-name">攻击力</span>
+      <div class="listbox">
+        <span>1200</span>
+        <div class="charts-hero-bar">图表</div>
+        <span>5200</span>
+      </div>
+    </li>
+
+    <li>
+      <span class="skill-name">攻击力</span>
+      <div class="listbox">
+        <span>1200</span>
+        <div class="charts-hero-bar">图表</div>
+        <span>5200</span>
+      </div>
+    </li>
+
+    <li>
+      <span class="skill-name">攻击力</span>
+      <div class="listbox">
+        <span>1200</span>
+        <div class="charts-hero-bar">图表</div>
+        <span>5200</span>
+      </div>
+    </li>
+  </ul>
+</div>
+<!-- 引入Echarts库 -->
+<!--<script src="{{pluResPath}}html/payLog/echarts.min.js"></script>-->
+<script src="echarts.min.js"></script>
+
+<!-- 在这里通过JS代码使用Echarts生成图表 -->
+<script>
+  // 使用Echarts生成攻击力图表
+  var attackChart = echarts.init(document.querySelector('#attack-chart'), null, { renderer: 'svg' });
+  var attackOption = {
+    // 攻击力图表的配置项...
+    grid: {
+      left: 10,
+      right: 10,
+      top: 0,
+      bottom: 10
+    },
+    xAxis: {
+      type: 'category',
+      data: ['+1', '+2', '+3', '+4', '+5', '+6', '+7', '+8', '+9', '+10'],
+      axisLine: {
+        show: !1
+      },
+      splitLine: {
+        show: !1
+      },
+      axisTick: {
+        show: !1
+      },
+      axisLabel: {
+        show: !1,
+        textStyle: {
+          color: '#333',
+          fontSize: 8,
+          fontWeight: '600',
+          padding: 0,
+          lineHeight: 6
+        },
+        interval: 0
+      }
+    },
+    yAxis: {
+      type: 'value',
+      max: 100,
+      axisLabel: {
+        show: !1,
+        formatter: '{value} %'
+      },
+      splitLine: {
+        show: !1
+      }
+    },
+    series: [
+      {
+        data: [20,20,20,40,20,20,60,20,20,20],
+        type: 'bar',
+        itemStyle: {
+          color: function (e) {
+            return 0 === e.dataIndex || 1 === e.dataIndex
+              ? '#f4c3c3'
+              : 2 === e.dataIndex || 3 === e.dataIndex
+                ? '#efa4a4'
+                : 4 === e.dataIndex || 5 === e.dataIndex
+                  ? '#e98686'
+                  : '#e46868';
+          },
+          borderRadius: [1, 1, 1, 1]
+        },
+        animationDuration: 1200
+      }
+    ]
+  };
+  attackChart.setOption(attackOption);
+
+  // 使用Echarts生成装备套装图表
+  var equipmentChart = echarts.init(document.getElementById('equipment-chart'));
+  var equipmentOption = {
+    // 装备套装图表的配置项...
+  };
+  equipmentChart.setOption(equipmentOption);
+</script>
+
+</body>
+</html>

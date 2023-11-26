@@ -1,0 +1,63 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, button, blockquote, a, address, img, strong, dl, dt, dd, ol, ul, li, fieldset, form, pre, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, input {
+  margin: 0;
+  padding: 0;
+  word-break: keep-all;
+}
+
+*, *:before, *:after {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  outline: 0;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+html, body {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  overflow: hidden;
+  overflow-y: overlay;
+  overflow-x: overlay;
+  width: 100%;
+  background-color: #fff;
+  font-family: "Pretendard",sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #000;
+  letter-spacing: -0.02em;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+}
+
+*, *:before, *:after {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  outline: 0;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -ms-user-select: none;
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+ol, ul, li, dl, dt, dd {
+  list-style: none;
+}
+
+
+
+

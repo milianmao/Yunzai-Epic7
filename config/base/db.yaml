@@ -1,0 +1,12 @@
+mysql:
+  database: epic7
+  host: 127.0.0.1
+  port: 3306
+  username: root
+  password: y1145909208
+  dialect: mysql
+  pool:
+    max: 5
+    min: 0
+    idle: 10000
+

@@ -1,0 +1,19 @@
+{
+  "name": "epic7",
+  "version": "1.0.0",
+  "author": "milianmao",
+  "description": "epic7-plugin",
+  "type": "module",
+  "scripts": {},
+  "dependencies": {
+    "mysql2": "^3.6.5",
+    "node-snowflake": "^0.0.1",
+    "sequelize": "^6.34.0",
+    "superagent": "^8.1.2"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "pnpm": {
+    "patchedDependencies": {}
+  }
+}
